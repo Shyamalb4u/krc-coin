@@ -1,4 +1,4 @@
-const { prototype } = require("jsonwebtoken/lib/JsonWebTokenError");
+//const { prototype } = require("jsonwebtoken/lib/JsonWebTokenError");
 
 const config = {
   user: "krc_coin_user", // Database username
