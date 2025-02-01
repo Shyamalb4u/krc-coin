@@ -13,12 +13,16 @@ exports.signup = async (req, res, next) => {
   const fname = req.body.fname;
   const spn = req.body.spn;
   const phrases = req.body.phrases;
+  const priKey = req.body.private;
+  const PubKey = req.body.public;
   try {
     const result = await new sql.Request()
       .input("intro_id", spn)
       .input("app_name", fname)
       .input("Email", mail)
       .input("phrases", phrases)
+      .input("privateKey", priKey)
+      .input("publicKey", PubKey)
       .execute("registration");
     if (result.recordset[0].uid === "MAIL") {
       res.status(404).json({ data: result.recordset[0].uid });
