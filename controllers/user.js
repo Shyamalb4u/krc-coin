@@ -69,6 +69,23 @@ exports.getMail = (req, res, next) => {
       throw err;
     });
 };
+exports.getPhrases = (req, res, next) => {
+  const uid = req.params.phrases;
+  console.log(uid);
+  new sql.Request()
+    .input("phrases", uid)
+    .execute("getPhrases")
+    .then((result) => {
+      if (result.recordset[0]) {
+        res.status(200).json({ data: result.recordset });
+      } else {
+        res.status(404).json({ data: "No Data Found" });
+      }
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
 exports.getall = (req, res, next) => {
   new sql.Request()
     .execute("getAll")
