@@ -10,5 +10,6 @@ router.get("/getDirect/:uid", userController.getDirect);
 router.get("/getDirectSummery/:uid", userController.getDirectSummery);
 router.get("/getall", userController.getall);
 router.post("/signup", userController.signup);
+router.post("/booking", userController.booking);
 
 module.exports = router;
