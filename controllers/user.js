@@ -145,10 +145,21 @@ exports.getDirect = (req, res, next) => {
 };
 exports.getDirectSummery = (req, res, next) => {
   const uid = req.params.uid;
-  console.log(uid);
   new sql.Request()
     .input("uid", uid)
     .execute("getDirectSummery")
+    .then((result) => {
+      res.status(200).json({ data: result.recordset });
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
+exports.getAccountSummery = (req, res, next) => {
+  const uid = req.params.phrases;
+  new sql.Request()
+    .input("uid", uid)
+    .execute("getAccountSummery")
     .then((result) => {
       res.status(200).json({ data: result.recordset });
     })

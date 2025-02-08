@@ -12,6 +12,7 @@ router.get(
   userController.getPendingActivation
 );
 router.get("/getDirectSummery/:uid", userController.getDirectSummery);
+router.get("/getAccountSummery/:phrases", userController.getAccountSummery);
 router.get("/getall", userController.getall);
 router.post("/signup", userController.signup);
 router.post("/booking", userController.booking);
