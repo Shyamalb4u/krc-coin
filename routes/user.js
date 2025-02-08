@@ -17,5 +17,6 @@ router.get("/getMyPackages/:phrases", userController.getMyPackages);
 router.get("/getall", userController.getall);
 router.post("/signup", userController.signup);
 router.post("/booking", userController.booking);
+router.post("/transfer", userController.insertTransaction);
 
 module.exports = router;
