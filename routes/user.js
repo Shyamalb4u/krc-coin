@@ -13,6 +13,7 @@ router.get(
 );
 router.get("/getDirectSummery/:uid", userController.getDirectSummery);
 router.get("/getAccountSummery/:phrases", userController.getAccountSummery);
+router.get("/getMyPackages/:phrases", userController.getMyPackages);
 router.get("/getall", userController.getall);
 router.post("/signup", userController.signup);
 router.post("/booking", userController.booking);
