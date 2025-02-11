@@ -248,3 +248,15 @@ exports.getWithdrawCheck = (req, res, next) => {
       throw err;
     });
 };
+exports.getWithdraw = (req, res, next) => {
+  const uid = req.params.phrases;
+  new sql.Request()
+    .input("publicKey", uid)
+    .execute("my_withdrawal")
+    .then((result) => {
+      res.status(200).json({ data: result.recordset });
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
