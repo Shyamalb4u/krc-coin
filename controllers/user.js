@@ -85,6 +85,19 @@ exports.editTransaction = async (req, res, next) => {
     throw err;
   }
 };
+exports.withdrawal = async (req, res, next) => {
+  const user = req.body.publicKey;
+  const amt = req.body.amount;
+  try {
+    const result = await new sql.Request()
+      .input("publicKey", user)
+      .input("amount", amt)
+      .execute("sp_withdrawal");
+    res.status(200).json({ data: "Success" });
+  } catch (err) {
+    throw err;
+  }
+};
 exports.getUser = (req, res, next) => {
   const uid = req.params.id;
   console.log(uid);
