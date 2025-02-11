@@ -200,3 +200,15 @@ exports.getMyPackages = (req, res, next) => {
       throw err;
     });
 };
+exports.getMyTransactions = (req, res, next) => {
+  const uid = req.params.phrases;
+  new sql.Request()
+    .input("uid", uid)
+    .execute("getMyTranstions")
+    .then((result) => {
+      res.status(200).json({ data: result.recordset });
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
