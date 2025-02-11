@@ -236,3 +236,15 @@ exports.getMyTransactions = (req, res, next) => {
       throw err;
     });
 };
+exports.getWithdrawCheck = (req, res, next) => {
+  const uid = req.params.phrases;
+  new sql.Request()
+    .input("publicKey", uid)
+    .execute("withdrawal_check")
+    .then((result) => {
+      res.status(200).json({ data: result.recordset });
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
