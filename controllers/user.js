@@ -74,6 +74,17 @@ exports.insertTransaction = async (req, res, next) => {
     throw err;
   }
 };
+exports.editTransaction = async (req, res, next) => {
+  const txn = req.body.txn;
+  try {
+    const result = await new sql.Request()
+      .input("txn", txn)
+      .execute("updateTranstions");
+    res.status(200).json({ data: "Success" });
+  } catch (err) {
+    throw err;
+  }
+};
 exports.getUser = (req, res, next) => {
   const uid = req.params.id;
   console.log(uid);

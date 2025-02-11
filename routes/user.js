@@ -19,5 +19,6 @@ router.get("/getall", userController.getall);
 router.post("/signup", userController.signup);
 router.post("/booking", userController.booking);
 router.post("/transfer", userController.insertTransaction);
+router.post("/editTransaction", userController.editTransaction);
 
 module.exports = router;
