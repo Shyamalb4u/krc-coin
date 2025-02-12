@@ -260,3 +260,13 @@ exports.getWithdraw = (req, res, next) => {
       throw err;
     });
 };
+exports.getPendingWithdraw = (req, res, next) => {
+  new sql.Request()
+    .execute("getPendingWithdrawal")
+    .then((result) => {
+      res.status(200).json({ data: result.recordset });
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
