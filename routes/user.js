@@ -25,5 +25,6 @@ router.post("/transfer", userController.insertTransaction);
 router.post("/editTransaction", userController.editTransaction);
 router.post("/withdrawal", userController.withdrawal);
 router.post("/patWithdrawal", userController.payWithdrawal);
+router.post("/updateUser", userController.updateUser);
 
 module.exports = router;

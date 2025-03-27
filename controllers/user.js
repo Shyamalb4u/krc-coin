@@ -285,3 +285,19 @@ exports.getPendingWithdraw = (req, res, next) => {
       throw err;
     });
 };
+exports.updateUser = (req, res, next) => {
+  const uid = req.body.PubKey;
+  const type = req.body.type;
+  const vals = req.body.vals;
+  new sql.Request()
+    .input("uid", uid)
+    .input("type", type)
+    .input("value", vals)
+    .execute("updateUserBy_type")
+    .then((result) => {
+      res.status(200).json({ data: "Success" });
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
