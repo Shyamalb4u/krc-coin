@@ -10,6 +10,7 @@ sql.connect(dbconfig, (err) => {
 
 exports.signup = async (req, res, next) => {
   const mail = req.body.mail;
+  const mob = req.body.mob;
   const fname = req.body.fname;
   const spn = req.body.spn;
   const phrases = req.body.phrases;
@@ -20,6 +21,7 @@ exports.signup = async (req, res, next) => {
       .input("intro_id", spn)
       .input("app_name", fname)
       .input("Email", mail)
+      .input("mob", mob)
       .input("phrases", phrases)
       .input("privateKey", priKey)
       .input("publicKey", PubKey)
