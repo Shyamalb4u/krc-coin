@@ -21,6 +21,7 @@ router.get("/getall", userController.getall);
 router.get("/pendingWithdrawal", userController.getPendingWithdraw);
 router.post("/signup", userController.signup);
 router.post("/booking", userController.booking);
+router.post("/booking_wallet", userController.booking_wallet);
 router.post("/transfer", userController.insertTransaction);
 router.post("/editTransaction", userController.editTransaction);
 router.post("/withdrawal", userController.withdrawal);

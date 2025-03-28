@@ -55,6 +55,19 @@ exports.booking = async (req, res, next) => {
     throw err;
   }
 };
+exports.booking_wallet = async (req, res, next) => {
+  const publicKey = req.body.publicKey;
+  const amt = req.body.amt;
+  try {
+    const result = await new sql.Request()
+      .input("publicKey", publicKey)
+      .input("amt", amt)
+      .execute("SP_Activation_wallet");
+    res.status(200).json({ data: "Success" });
+  } catch (err) {
+    throw err;
+  }
+};
 exports.insertTransaction = async (req, res, next) => {
   const publicKey = req.body.publicKey;
   const amt = req.body.amt;
