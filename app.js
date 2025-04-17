@@ -25,6 +25,14 @@ const job = schedule.scheduleJob("30 18 * * *", async function () {
     throw err;
   }
 });
+const jobs = schedule.scheduleJob("30 20 * * *", async function () {
+  console.log("If anyone missed!");
+  try {
+    const result = await new sql.Request().execute("DailyAchievement_Release");
+  } catch (err) {
+    throw err;
+  }
+});
 app.use("/api", userRouter);
 
 app.use((error, req, res, next) => {
