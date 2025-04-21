@@ -19,6 +19,8 @@ router.get("/checkWithdraw/:phrases", userController.getWithdrawCheck);
 router.get("/getWithdraw/:phrases", userController.getWithdraw);
 router.get("/getall", userController.getall);
 router.get("/pendingWithdrawal", userController.getPendingWithdraw);
+router.get("/getMyDirectList/:phrases", userController.getMyDirectList);
+
 router.post("/signup", userController.signup);
 router.post("/booking", userController.booking);
 router.post("/booking_wallet", userController.booking_wallet);
