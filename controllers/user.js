@@ -346,3 +346,16 @@ exports.getLevelBusinessList = (req, res, next) => {
     throw err;
   }
 };
+exports.principalWithdrawal = async (req, res, next) => {
+  const actSL = req.body.actSl;
+  const amt = req.body.amt;
+  try {
+    const result = await new sql.Request()
+      .input("actSl", actSL)
+      .input("amount", amt)
+      .execute("principal_withdrawal");
+    res.status(200).json({ data: "Success" });
+  } catch (err) {
+    throw err;
+  }
+};
