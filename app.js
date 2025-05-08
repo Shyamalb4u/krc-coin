@@ -20,19 +20,21 @@ app.use((req, res, next) => {
 const job = schedule.scheduleJob("30 18 * * *", async function () {
   console.log("The answer to life, the universe, and everything! OK");
   try {
-    const result = await new sql.Request().execute("DailyAchievement_Release");
+    const request = new sql.Request();
+    request.timeout = 1800000;
+    const result = await request.execute("DailyAchievement_Release");
   } catch (err) {
     throw err;
   }
 });
-const jobs = schedule.scheduleJob("30 20 * * *", async function () {
-  console.log("If anyone missed!");
-  try {
-    const result = await new sql.Request().execute("DailyAchievement_Release");
-  } catch (err) {
-    throw err;
-  }
-});
+// const jobs = schedule.scheduleJob("30 20 * * *", async function () {
+//   console.log("If anyone missed!");
+//   try {
+//     const result = await new sql.Request().execute("DailyAchievement_Release");
+//   } catch (err) {
+//     throw err;
+//   }
+// });
 app.use("/api", userRouter);
 
 app.use((error, req, res, next) => {
