@@ -28,6 +28,7 @@ router.get(
 router.post("/signup", userController.signup);
 router.post("/booking", userController.booking);
 router.post("/booking_wallet", userController.booking_wallet);
+router.post("/wallet_transfer", userController.wallet_transfer);
 router.post("/transfer", userController.insertTransaction);
 router.post("/editTransaction", userController.editTransaction);
 router.post("/withdrawal", userController.withdrawal);
