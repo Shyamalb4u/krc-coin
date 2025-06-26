@@ -19,6 +19,7 @@ router.get("/checkWithdraw/:phrases", userController.getWithdrawCheck);
 router.get("/getWithdraw/:phrases", userController.getWithdraw);
 router.get("/getall", userController.getall);
 router.get("/pendingWithdrawal", userController.getPendingWithdraw);
+router.get("/pendingWithdrawal_id/:id", userController.getPendingWithdraw_id);
 router.get("/getMyDirectList/:phrases", userController.getMyDirectList);
 router.get(
   "/getLevelBusinessList/:phrases",

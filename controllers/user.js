@@ -313,6 +313,18 @@ exports.getPendingWithdraw = (req, res, next) => {
       throw err;
     });
 };
+exports.getPendingWithdraw_id = (req, res, next) => {
+  const uid = req.params.id;
+  new sql.Request()
+    .input("id", uid)
+    .execute("getPendingWithdrawal_id")
+    .then((result) => {
+      res.status(200).json({ data: result.recordset });
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
 exports.updateUser = (req, res, next) => {
   const uid = req.body.PubKey;
   const type = req.body.type;
