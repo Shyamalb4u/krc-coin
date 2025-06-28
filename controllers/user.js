@@ -303,6 +303,18 @@ exports.getWithdraw = (req, res, next) => {
       throw err;
     });
 };
+exports.getMVT_Balance = (req, res, next) => {
+  const uid = req.params.phrases;
+  new sql.Request()
+    .input("uid", uid)
+    .execute("getMVT_balance")
+    .then((result) => {
+      res.status(200).json({ data: result.recordset });
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
 exports.getPendingWithdraw = (req, res, next) => {
   new sql.Request()
     .execute("getPendingWithdrawal")

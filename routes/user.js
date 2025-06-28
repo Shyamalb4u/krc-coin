@@ -17,6 +17,7 @@ router.get("/getMyPackages/:phrases", userController.getMyPackages);
 router.get("/getMyTransactions/:phrases", userController.getMyTransactions);
 router.get("/checkWithdraw/:phrases", userController.getWithdrawCheck);
 router.get("/getWithdraw/:phrases", userController.getWithdraw);
+router.get("/getMVT_balance/:phrases", userController.getMVT_Balance);
 router.get("/getall", userController.getall);
 router.get("/pendingWithdrawal", userController.getPendingWithdraw);
 router.get("/pendingWithdrawal_id/:id", userController.getPendingWithdraw_id);
