@@ -35,6 +35,7 @@ router.post("/transfer", userController.insertTransaction);
 router.post("/editTransaction", userController.editTransaction);
 router.post("/withdrawal", userController.withdrawal);
 router.post("/patWithdrawal", userController.payWithdrawal);
+router.post("/patWithdrawal_token", userController.payWithdrawalToken);
 router.post("/updateUser", userController.updateUser);
 router.post("/principalWithdraw", userController.principalWithdrawal);
 

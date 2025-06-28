@@ -141,6 +141,17 @@ exports.payWithdrawal = async (req, res, next) => {
     throw err;
   }
 };
+exports.payWithdrawalToken = async (req, res, next) => {
+  const withSL = req.body.sl;
+  try {
+    const result = await new sql.Request()
+      .input("withdra_sl", withSL)
+      .execute("sp_pay_withdrawal_token");
+    res.status(200).json({ data: "Success" });
+  } catch (err) {
+    throw err;
+  }
+};
 exports.getUser = (req, res, next) => {
   const uid = req.params.id;
   console.log(uid);
